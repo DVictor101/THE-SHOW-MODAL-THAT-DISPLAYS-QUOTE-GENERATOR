@@ -1,0 +1,382 @@
+/*
+html5doctor.comResetStylesheet
+v1.6.1
+LastUpdated:2010-09-17
+Author:RichardClark-http://richclarkdesign.com
+Twitter:@rich_clark
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+navul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/*changecolourstosuityourneeds*/
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/*changecolourstosuityourneeds*/
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1pxdotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*changebordercolourtosuityourneeds*/
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+/*font-family: 'Alkalami', serif;
+font-family: 'Bungee Spice', cursive;
+font-family: 'Oswald', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Qwitcher Grypen', cursive;
+font-family: 'Roboto', sans-serif;*/
+/*body {
+  background-color: rgb(161, 176, 189);
+}*/
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: rgb(184, 109, 11);
+}
+
+.buttonOne, .buttonthree, .buttontwo {
+  width: 30%;
+  height: 2.5rem;
+  border-radius: 10px;
+  margin: 1rem;
+  border: none;
+  background-color: rgb(7, 63, 63);
+  color: white;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.showmodal {
+  background-color: rgb(168, 146, 146);
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L0 20z' fill='%238048d9' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  height: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showmodal span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.quotecontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  margin: 15px;
+  box-shadow: 3px 3px 3px 3px;
+}
+
+.title {
+  margin-top: 10px;
+  font-family: "Qwitcher Grypen", cursive;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.buttondiv {
+  display: flex;
+  margin: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.buttonOned {
+  height: 3.5rem;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(238, 127, 255);
+  cursor: pointer;
+}
+
+.buttontwod, .backbuttonOne, .backbuttontwo {
+  background-color: rgb(238, 127, 255);
+  font-size: 1.1rem;
+  font-weight: 900;
+  height: 50px;
+  width: 8rem;
+  margin: 10px;
+  align-self: flex-start;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.backdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.backbuttonOne, .backbuttontwo {
+  background-color: rgb(60, 5, 89);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.backbuttonOne:hover, .backbuttontwo:hover {
+  background-color: white;
+  color: rgb(60, 5, 89);
+}
+
+.backbuttontwo {
+  width: 10rem;
+}
+
+.long-quote {
+  font-size: 2.5rem;
+}
+
+.loader {
+  border: 16px solid rgb(212, 202, 202);
+  border-top: 16px solid rgb(60, 5, 89);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    height: 10rem;
+  }
+  .buttonOne, .buttontwo, .buttonthree {
+    height: 4rem;
+    border-radius: 15px;
+    font-size: 1.8rem;
+  }
+  .quotetextcontainer {
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    color: rgb(60, 5, 89);
+  }
+  .quotetext {
+    font-weight: bold;
+  }
+  .buttondiv {
+    display: flex;
+    margin: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .buttonOned {
+    height: 5rem;
+    width: 5rem;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .buttontwod, .backbuttonOne, .backbuttontwo {
+    font-size: 1.5rem;
+    height: 5rem;
+    width: 13rem;
+    border-radius: 10px;
+  }
+  .backbuttontwo {
+    width: 15rem;
+  }
+  .loader {
+    border: 16px solid rgb(212, 202, 202);
+    border-top: 16px solid rgb(60, 5, 89);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+  }
+}/*# sourceMappingURL=style.css.map */
