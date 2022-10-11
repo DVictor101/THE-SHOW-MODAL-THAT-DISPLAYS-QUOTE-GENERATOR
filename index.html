@@ -14,7 +14,7 @@
     <title>DGIFTED sign in page</title>
   </head>
   <body>
-    <main class="main hidden">
+    <main class="main">
       <!--
 THE BUTTON CONTENT
    -->
@@ -24,7 +24,7 @@ THE BUTTON CONTENT
       <button class="buttonthree">SHOW MODAL 3</button>
     </main>
     <!--QUOTE GENERATOR CONTENT STARTS HERE-->
-    <section class="quoteSectinContent">
+    <section class="quoteSectinContent hidden">
       <div class="backdiv">
         <button class="backbuttonOne">BACK</button>
         <button class="backbuttontwo">NEXT GAME</button>
@@ -58,7 +58,37 @@ THE BUTTON CONTENT
       </section>
     </section>
     <!--LOADER-->
+    <!--THE GUESS A NUMBER CONTENT STARTS HERE-->
+    <section class="guessection hidden">
+      <div class="backdiv">
+        <button class="backbuttonOne" id="guessid">BACK</button>
+        <button class="backbuttontwo" id="guessmodal">MODALS</button>
+      </div>
+      <header class="guesshead">
+        <button class="guesshead__btn" id="again__btn">Again!</button>
+        <span class="guesshead__span">(Between 1 and 20)</span>
+      </header>
+      <h1 class="guesshOne">Guess My Number</h1>
+      <div class="rendom_div">
+        <hr class="randon_hr" />
+        <div class="random-div__box">?</div>
+        </div>
+        <article class="inputcontainer__article">
+          <section class="inputsectionH">
+           <div class="inputdirectdiv"><input class="numinput" type="number" /></div>
+           <button class="numberinput__btn">Check!</button>
+          </section>
+          <section class="correctnum__section">
+<p class="correct__pone">🔥 Correct number</p>
+<p class="correct__ptwo">💯 score: <span class="scorevalue">20</span><p>
+<p class="correct__pthree">🎼 Highscore: <span class="highscorevalue">0</span></p>
 
+
+
+          </section>
+        </article>
+      </div>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
