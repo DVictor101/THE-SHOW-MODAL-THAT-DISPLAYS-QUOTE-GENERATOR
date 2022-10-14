@@ -171,12 +171,13 @@ select {
   vertical-align: middle;
 }
 
-/*font-family: 'Alkalami', serif;
-font-family: 'Bungee Spice', cursive;
-font-family: 'Oswald', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Qwitcher Grypen', cursive;
-font-family: 'Roboto', sans-serif;*/
+/*
+font-family: "Alkalami", serif;
+font-family: "Bungee Spice", cursive;
+font-family: "Oswald", sans-serif;
+font-family: "Poppins", sans-serif;
+font-family: "Qwitcher Grypen", cursive;
+font-family: "Roboto", sans-serif;*/
 /*body {
   background-color: rgb(161, 176, 189);
 }*/
@@ -185,10 +186,17 @@ main {
   justify-content: center;
   align-items: center;
   height: 5rem;
+  width: 100%;
   background-color: rgb(184, 109, 11);
 }
 
-.buttonOne, .buttonthree, .buttontwo {
+.buttonmaindiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.buttonOne, .diceBackButton, .guessBackButton, .backbuttonOne, .numberinput__btn, .guesshead__btn, .backbuttontwo, .buttonthree, .buttontwo {
   width: 30%;
   height: 2.5rem;
   border-radius: 10px;
@@ -203,6 +211,14 @@ main {
 
 .hidden {
   display: none;
+}
+
+.guessBackButton {
+  background-color: rgb(60, 5, 89);
+}
+
+.diceBackButton {
+  background-color: rgb(60, 5, 89);
 }
 
 .showmodal {
@@ -466,49 +482,192 @@ main {
   font-size: 1.2rem;
 }
 
+/*THE DICE GAME STYLING STARTS HERE **********************************************************************************************************************************************************************/
+.dicegame__sec {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgb(0, 124, 128), rgb(0, 213, 255));
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dicegame-sec__div {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.middle__content {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-c__btn, .m-c__hold, .m-c__roll, .m-c__img {
+  border: none;
+  font-weight: 700;
+  border-radius: 15px;
+  margin: 25px 0;
+  height: 2.5rem;
+}
+
+.m-c__div {
+  width: 50px;
+  height: 50px;
+  margin: 1.5rem;
+}
+
+.m-c__img {
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.m-c__hold {
+  width: 100px;
+}
+
+.mainplayer__one--0, .mainplayer__one--1 {
+  background-color: rgba(156, 160, 194, 0.5);
+  width: 50%;
+  height: 100%;
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tobeenterdiv {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 27%;
+}
+
+.m-o__h1, .m-o__span, .m-t__span, .m-t__h1 {
+  width: 100%;
+  font-size: 1.5rem;
+  margin: 1rem;
+  font-weight: 900;
+}
+
+.mainplayer__one--1 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.current__section {
+  background-color: blueviolet;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  border-radius: 10px;
+}
+
+.tobeenterdivtwo {
+  width: 100%;
+  height: 50%;
+  padding: 3.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-t__h1 {
+  text-align: center;
+}
+
+.m-o__span, .m-t__span {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.m-t__span {
+  text-align: center;
+}
+
+.m-o__h4 {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.m-t__spantwo--1 {
+  padding: 1rem;
+}
+
+.player--active {
+  background-color: rgb(156, 160, 194);
+}
+
+.player--winner {
+  background-color: #2b3589;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   main {
-    height: 10rem;
+    /*THE DICE GAME STYLING STARTS HERE **********************************************************************************************************************************************************************/
+    /*THE GUESS MY NUMBER STYLING*************************************************/
   }
-  .buttonOne, .buttontwo, .buttonthree {
-    height: 4rem;
-    border-radius: 15px;
-    font-size: 1.8rem;
+  main .m-c__hold {
+    width: 40px;
   }
-  .quotetextcontainer {
+  main .quotetextcontainer {
     height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .title {
+  main .title {
     color: rgb(60, 5, 89);
   }
-  .quotetext {
+  main .quotetext {
     font-weight: bold;
   }
-  .buttondiv {
+  main .buttondiv {
     display: flex;
     margin: 10px;
     width: 100%;
     justify-content: space-between;
   }
-  .buttonOned {
+  main .buttonOned {
     height: 5rem;
     width: 5rem;
     margin: 10px;
     border-radius: 10px;
   }
-  .buttontwod, .backbuttonOne, .backbuttontwo, .guesshead__btn, .numberinput__btn {
+  main .buttontwod, main .backbuttonOne, main .backbuttontwo, main .guesshead__btn, main .numberinput__btn {
     font-size: 1.5rem;
     height: 5rem;
     width: 13rem;
     border-radius: 10px;
   }
-  .backbuttontwo {
+  main .backbuttontwo {
     width: 15rem;
   }
-  .loader {
+  main .loader {
     border: 16px solid rgb(212, 202, 202);
     border-top: 16px solid rgb(60, 5, 89);
     border-radius: 50%;
@@ -517,23 +676,22 @@ main {
     -webkit-animation: spin 2s linear infinite;
             animation: spin 2s linear infinite;
   }
-  /*THE GUESS MY NUMBER STYLING*************************************************/
-  .guesshead {
+  main .guesshead {
     margin-top: 1%;
     margin: 3rem;
   }
-  .guesshead__span {
+  main .guesshead__span {
     font-size: 1.5rem;
   }
-  .guesshOne {
+  main .guesshOne {
     margin-top: 1.5rem;
     font-size: 3.5rem;
   }
-  .rendom_div {
+  main .rendom_div {
     margin-top: 3rem;
     width: 100%;
   }
-  .random-div__box {
+  main .random-div__box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -541,18 +699,18 @@ main {
     height: 6rem;
     font-size: 3rem;
   }
-  .inputcontainer__article {
+  main .inputcontainer__article {
     margin: 2rem;
   }
-  .correctnum__section {
+  main .correctnum__section {
     align-self: center;
     margin: 1rem;
   }
-  .inputdirectdiv {
+  main .inputdirectdiv {
     width: 6rem;
     height: 6rem;
   }
-  .numinput {
+  main .numinput {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -561,23 +719,23 @@ main {
     font-weight: 900;
     font-size: 3rem;
   }
-  .numberinput__btn {
+  main .numberinput__btn {
     margin: 3rem;
     width: 8rem;
     height: 3.5rem;
   }
-  .correctnum__section {
+  main .correctnum__section {
     margin: 3rem;
   }
-  .correct__pone, .correct__ptwo, .correct__pthree {
+  main .correct__pone, main .correct__ptwo, main .correct__pthree {
     font-size: 1.5rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) and (min-width: 1024px) {
   main {
     height: 10rem;
   }
-  .buttonOne, .buttontwo, .buttonthree {
+  .buttonOne, .buttontwo, .buttonthree, .backbuttonOne, .guessBackButton, .diceBackButton, .backbuttontwo, .guesshead__btn, .numberinput__btn {
     height: 4rem;
     border-radius: 15px;
     font-size: 1.8rem;
@@ -644,7 +802,7 @@ main {
     margin: 2rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) and (min-width: 1024px) {
   /*THE GUESS MY NUMBER STYLING*************************************************/
   .guesshead {
     margin-top: 0.5%;

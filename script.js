@@ -4,6 +4,7 @@
 const main = document.querySelector("main");
 const quotePage = document.querySelector(".quoteSectinContent");
 const guesSection = document.querySelector(".guessection");
+const diceSectioon = document.querySelector(".dicesection ");
 
 //THE VARIABLE FOR BUTTONS AND DISPLAY CONTENT
 const buttonOne = document.querySelector(".buttonOne");
@@ -11,30 +12,27 @@ const buttonTwo = document.querySelector(".buttontwo");
 const buttonThree = document.querySelector(".buttonthree");
 const showModal = document.querySelector(".showmodal");
 const guessBackButton = document.getElementById("guessid");
-const guessModalButton = document.getElementById("guessmodal");
+const guessNextButton = document.getElementById("guessmodal");
 const quoteBackButton = document.querySelector(".backbuttonOne");
+const diceBackDiv = document.querySelector(".backdivdice");
+const diceNextButton = document.querySelector(".diceNextButton");
+const diceBackButton = document.querySelector(".diceBackButton");
 
 //THE SHOW MODALS BUTTON SCRIPT CONTENT STARTS HERE
-buttonOne.addEventListener("click", function () {
-  showModal.style.display = "block";
-});
+
 buttonTwo.addEventListener("click", function () {
-  main.classList.add("hidden");
-  guesSection.classList.remove("hidden");
+  main.style.display = "none";
+  guesSection.style.display = "block";
 });
 buttonThree.addEventListener("click", function () {
-  main.classList.add("hidden");
+  main.style.display = "none";
 
-  quotePage.classList.remove("hidden");
+  quotePage.style.display = "block";
 });
 quoteBackButton.addEventListener("click", function () {
   main.classList.remove("hidden");
 
   quotePage.classList.add("hidden");
-});
-guessBackButton.addEventListener("click", function () {
-  main.classList.remove("hidden");
-  guesSection.classList.add("hidden");
 });
 
 //THE QOUTE GENERATOR SCRIPT STARTS HERE
@@ -115,6 +113,7 @@ const highScoreParent = document.querySelector(".correct__pthree");
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore01 = 0;
+playing = true;
 
 checkButton.addEventListener("click", function () {
   const guess = Number(inputBox.value);
@@ -169,3 +168,139 @@ againButton.addEventListener("click", function () {
   highScore.style.color = "black";
   scoreValue.style.color = "black";
 });
+
+/*THE DICE ROLL GAME SCRIPT STARTS HERE **************************************************************************************************************************/
+//THE REQUIRED ELEMENT SELECTORS
+
+const resetGame = document.querySelector(".m-c__btn");
+const rollDice = document.querySelector(".m-c__roll");
+const hold = document.querySelector(".m-c__hold");
+const dice = document.querySelector(".m-c__img");
+const playerOneValue = document.querySelector(".m-o__span");
+const playerOneCurrentValue = document.querySelector(".m-o__spantwo--0");
+const playerTwoValue = document.querySelector(".m-t__span");
+const playerTwoCurrentValue = document.querySelector(".m-o__spantwo--1");
+const backColor = document.querySelector(".player--0");
+const backColor1 = document.querySelector(".player--1");
+//Game order activities
+let played, currentScore, activePlayer, scores;
+
+const init = function () {
+  played = true;
+  currentScore = 0;
+  activePlayer = 0;
+  scores = [0, 0];
+  dice.classList.add("hidden");
+
+  document.querySelector(`.m-o__spantwo--${0}`).textContent = 0;
+  document.querySelector(`.m-o__spantwo--${1}`).textContent = 0;
+  document.getElementById(`score--${0}`).textContent = 0;
+  document.getElementById(`score--${1}`).textContent = 0;
+  backColor.classList.remove("player--winner");
+  backColor1.classList.remove("player--winner");
+  backColor.classList.add("player--active");
+  backColor1.classList.remove("player--active");
+};
+
+init();
+
+const switchPlayer = function () {
+  currentScore = 0;
+  document.querySelector(`.m-o__spantwo--${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer === 1 ? 0 : 1;
+  backColor.classList.toggle("player--active");
+  backColor1.classList.toggle("player--active");
+};
+
+//ROLL DICE CLICKEVENT
+rollDice.addEventListener("click", function () {
+  if (played) {
+    //RANDOM NUMBER GENERAATOR
+    let randomNumber = Math.trunc(Math.random() * 6) + 1;
+    dice.classList.remove("hidden");
+    //imagealteration
+    dice.src = `./Assets/dice-${randomNumber}.png`;
+    //DISPLAY THE RANDOM NUMBER IN THE CURRENT PAGE
+    if (randomNumber !== 1) {
+      currentScore += randomNumber;
+      document.querySelector(`.m-o__spantwo--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      switchPlayer();
+    }
+  }
+});
+
+//HOLD EVENT ACTIVITY
+hold.addEventListener("click", function () {
+  if (played) {
+    //ADD CURRENT PLAYER TO SCORE
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+    //check if th eplayer is >= 100
+    if (scores[activePlayer] >= 100) {
+      played = false;
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add("player--winner");
+      backColor.classList.remove("player--active");
+      backColor1.classList.remove("player--active");
+      dice.classList.add("hidden");
+    }
+
+    //switch tot the next player
+    switchPlayer();
+  }
+});
+
+resetGame.addEventListener("click", init);
+
+// THE NAVIGATION BUTTONS SCRIPT
+//DICE SECTION BACK BUTTON
+diceSectioon.classList.add("hidden");
+
+buttonOne.addEventListener("click", function () {
+  diceSectioon.style.display = "block";
+  main.style.display = "none";
+});
+//THE DICEBACKBUTTON SCRIPT
+
+diceBackDiv.addEventListener("click", function () {
+  diceSectioon.classList.add("hidden");
+  main.classList.remove("hidden");
+});
+diceNextButton.addEventListener("click", function () {
+  diceSectioon.style.display = "none";
+  guesSection.style.display = "block";
+  main.style.display = "none";
+});
+//guess back button
+guessBackButton.addEventListener("click", function () {
+  main.style.display = "block";
+  guesSection.style.display = "none";
+});
+diceBackButton.addEventListener("click", function () {
+  main.style.display = "inline-block";
+  guesSection.style.display = "none";
+  diceSectioon.style.display = "none";
+});
+//THE GUESS NEXT BUTTON
+guessNextButton.addEventListener("click", function () {
+  quotePage.style.display = "block";
+  guesSection.style.display = "none";
+});
+//QUOTE BACK BUTTON
+quoteBackButton.addEventListener("click", function () {
+  main.style.display = "block";
+  quotePage.style.display = "none";
+});
+
+//
+
+//IF THE CURRENT BUTTON
+
+//back.addEventListener("click", function(){
+//if()
+
+//})
